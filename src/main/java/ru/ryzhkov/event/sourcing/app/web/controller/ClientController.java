@@ -29,18 +29,21 @@ public class ClientController {
     private final AccountMapper accountMapper;
 
     @GetMapping("/{id}")
+    @PreAuthorize("@ssi.canAccessClient(#id)")
     public ClientDto getById(@PathVariable final UUID id) {
         Client client = clientService.getById(id);
         return clientMapper.toDto(client);
     }
 
     @GetMapping("/{id}/cards")
+    @PreAuthorize("@ssi.canAccessClient(#id)")
     public List<CardDto> getCardsById(@PathVariable final UUID id) {
         Client client = clientService.getById(id);
         return cardMapper.toDto(client.getCards());
     }
 
     @GetMapping("/{id}/account")
+    @PreAuthorize("@ssi.canAccessClient(#id)")
     public AccountDto getAccountById(@PathVariable final UUID id) {
         Client client = clientService.getById(id);
         return accountMapper.toDto(client.getAccount());
