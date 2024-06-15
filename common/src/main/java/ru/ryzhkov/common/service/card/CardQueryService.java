@@ -1,7 +1,7 @@
-package ru.ryzhkov.core.service.card;
+package ru.ryzhkov.common.service.card;
 
 import ru.ryzhkov.common.domain.model.Card;
-import ru.ryzhkov.core.service.QueryService;
+import ru.ryzhkov.common.service.QueryService;
 
 public interface CardQueryService extends QueryService<Card> {
 
@@ -16,4 +16,8 @@ public interface CardQueryService extends QueryService<Card> {
             String cvv
     );
 
+    Card getByNumberAndDate(
+            String number,
+            String date
+    );
 }

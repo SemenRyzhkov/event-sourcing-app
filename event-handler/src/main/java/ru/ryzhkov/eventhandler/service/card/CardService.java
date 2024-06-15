@@ -1,5 +1,6 @@
 package ru.ryzhkov.eventhandler.service.card;
 
+import org.springframework.transaction.annotation.Transactional;
 import ru.ryzhkov.common.domain.model.Card;
 
 import java.math.BigDecimal;
@@ -11,4 +12,10 @@ public interface CardService {
     Card create(Card card);
 
     void add(Card card, BigDecimal amount);
+
+    @Transactional
+    void addTransaction(
+            UUID cardId,
+            UUID transactionId
+    );
 }

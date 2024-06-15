@@ -21,4 +21,9 @@ public interface CardService extends CommandService<Card>, QueryService<Card> {
             String cvv
     );
 
+    Card getByNumberAndDate(
+            String number,
+            String date
+    );
+
 }

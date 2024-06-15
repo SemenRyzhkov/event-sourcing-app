@@ -1,11 +1,10 @@
-package ru.ryzhkov.core.service.account;
+package ru.ryzhkov.common.service.account;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.ryzhkov.common.domain.exception.ResourceNotFoundException;
 import ru.ryzhkov.common.domain.model.Account;
 import ru.ryzhkov.common.repository.AccountRepository;
-
 
 import java.util.UUID;
 

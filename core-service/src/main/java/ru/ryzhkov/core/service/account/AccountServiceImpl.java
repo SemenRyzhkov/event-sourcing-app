@@ -3,6 +3,7 @@ package ru.ryzhkov.core.service.account;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.ryzhkov.common.domain.model.Account;
+import ru.ryzhkov.common.service.account.AccountQueryService;
 
 import java.util.UUID;
 

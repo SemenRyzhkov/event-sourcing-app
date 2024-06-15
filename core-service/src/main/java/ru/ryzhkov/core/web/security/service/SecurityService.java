@@ -1,6 +1,6 @@
 package ru.ryzhkov.core.web.security.service;
 
-import ru.ryzhkov.common.domain.model.Card;
+import ru.ryzhkov.core.web.dto.CardDto;
 import ru.ryzhkov.core.web.security.SecurityUser;
 
 import java.util.UUID;
@@ -13,7 +13,7 @@ public interface SecurityService {
 
     boolean canAccessCard(UUID cardId);
 
-    boolean canAccessCard(Card card);
+    boolean canAccessCard(CardDto card);
 
     boolean canAccessTransaction(UUID transactionId);
 

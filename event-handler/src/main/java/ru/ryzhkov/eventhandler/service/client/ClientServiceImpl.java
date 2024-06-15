@@ -8,6 +8,8 @@ import ru.ryzhkov.common.domain.model.Client;
 import ru.ryzhkov.common.repository.ClientRepository;
 import ru.ryzhkov.eventhandler.service.account.AccountService;
 
+import java.util.UUID;
+
 @Service
 @RequiredArgsConstructor
 public class ClientServiceImpl implements ClientService {
@@ -17,13 +19,17 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     @Transactional
-    public Client create(
-            final Client client
-    ) {
+    public Client create(final Client client) {
         Account account = new Account();
         account = accountService.create(account);
         client.setAccount(account);
         return repository.save(client);
+    }
+
+    @Override
+    @Transactional
+    public void addCard(final UUID clientId, final UUID cardId) {
+        repository.addCard(clientId.toString(), cardId.toString());
     }
 
 }

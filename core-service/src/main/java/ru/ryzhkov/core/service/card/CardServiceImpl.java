@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import ru.ryzhkov.common.domain.model.Card;
 import ru.ryzhkov.common.domain.model.Client;
+import ru.ryzhkov.common.service.card.CardQueryService;
 import ru.ryzhkov.core.service.client.ClientService;
 
 import java.util.UUID;
@@ -49,6 +50,14 @@ public class CardServiceImpl implements CardService {
             final String cvv
     ) {
         return queryService.getByNumberAndDateAndCvv(number, date, cvv);
+    }
+
+    @Override
+    public Card getByNumberAndDate(
+            final String number,
+            final String date
+    ) {
+        return queryService.getByNumberAndDate(number, date);
     }
 
 }

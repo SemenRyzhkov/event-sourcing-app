@@ -1,7 +1,9 @@
-package ru.ryzhkov.core.service.client;
+package ru.ryzhkov.common.service.client;
 
 import ru.ryzhkov.common.domain.model.Client;
-import ru.ryzhkov.core.service.QueryService;
+import ru.ryzhkov.common.service.QueryService;
+
+import java.util.UUID;
 
 public interface ClientQueryService extends QueryService<Client> {
 
@@ -9,4 +11,7 @@ public interface ClientQueryService extends QueryService<Client> {
 
     boolean existsByUsername(String username);
 
+    Client getByAccount(
+            UUID accountId
+    );
 }

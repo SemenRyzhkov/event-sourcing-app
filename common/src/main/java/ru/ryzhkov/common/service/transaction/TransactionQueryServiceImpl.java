@@ -1,11 +1,10 @@
-package ru.ryzhkov.core.service.transaction;
+package ru.ryzhkov.common.service.transaction;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.ryzhkov.common.domain.exception.ResourceNotFoundException;
 import ru.ryzhkov.common.domain.model.Transaction;
 import ru.ryzhkov.common.repository.TransactionRepository;
-
 
 import java.util.UUID;
 

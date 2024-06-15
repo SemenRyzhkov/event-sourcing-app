@@ -1,11 +1,10 @@
-package ru.ryzhkov.core.service.client;
+package ru.ryzhkov.common.service.client;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.ryzhkov.common.domain.exception.ResourceNotFoundException;
 import ru.ryzhkov.common.domain.model.Client;
 import ru.ryzhkov.common.repository.ClientRepository;
-
 
 import java.util.UUID;
 
@@ -32,4 +31,11 @@ public class ClientQueryServiceImpl implements ClientQueryService {
         return repository.existsByUsername(username);
     }
 
+    @Override
+    public Client getByAccount(
+            final UUID accountId
+    ) {
+        return repository.findByAccountId(accountId)
+                .orElseThrow(ResourceNotFoundException::new);
+    }
 }

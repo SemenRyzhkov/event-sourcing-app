@@ -12,6 +12,7 @@ import ru.ryzhkov.common.domain.model.Transaction;
 import ru.ryzhkov.core.service.card.CardService;
 import ru.ryzhkov.core.service.client.ClientService;
 import ru.ryzhkov.core.service.transaction.TransactionService;
+import ru.ryzhkov.core.web.dto.CardDto;
 import ru.ryzhkov.core.web.security.SecurityUser;
 
 import java.util.UUID;
@@ -55,7 +56,7 @@ public class SecurityServiceImpl implements SecurityService {
     }
 
     @Override
-    public boolean canAccessCard(final Card card) {
+    public boolean canAccessCard(final CardDto card) {
         try {
             Card foundCard = cardService.getByNumberAndDateAndCvv(
                     card.getNumber(),

@@ -3,6 +3,7 @@ package ru.ryzhkov.core.service.client;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.ryzhkov.common.domain.model.Client;
+import ru.ryzhkov.common.service.client.ClientQueryService;
 
 import java.util.UUID;
 

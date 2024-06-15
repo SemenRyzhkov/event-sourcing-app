@@ -1,4 +1,4 @@
-package ru.ryzhkov.core.service.card;
+package ru.ryzhkov.common.service.card;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -6,8 +6,6 @@ import ru.ryzhkov.common.domain.exception.ResourceNotFoundException;
 import ru.ryzhkov.common.domain.model.Card;
 import ru.ryzhkov.common.repository.CardRepository;
 
-
-import javax.management.relation.RelationNotFoundException;
 import java.util.UUID;
 
 @Service
@@ -37,6 +35,15 @@ public class CardQueryServiceImpl implements CardQueryService {
             final String cvv
     ) {
         return repository.findByNumberAndDateAndCvv(number, date, cvv)
+                .orElseThrow(ResourceNotFoundException::new);
+    }
+
+    @Override
+    public Card getByNumberAndDate(
+            final String number,
+            final String date
+    ) {
+        return repository.findByNumberAndDate(number, date)
                 .orElseThrow(ResourceNotFoundException::new);
     }
 
